@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { PermitRescuer } from "../src/modules/permit.js";
-import { StakingRescuer } from "../src/modules/staking.ts";
+import { StakingRescuer } from "../src/modules/staking.js";
 
 describe("PermitRescuer", () => {
   const permit = new PermitRescuer();

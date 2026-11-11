@@ -1,5 +1,5 @@
 import chalk from "chalk";
-import { ChainId, RescuePlan } from "./types/index.js";
+import { ChainId, RescuePlan } from "../types/index.js";
 
 export class RescueWizard {
   public static printBanner(): void {
