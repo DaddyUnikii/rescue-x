@@ -16,10 +16,24 @@ export class PreflightSimulator {
 
   public async simulateCall(tx: TransactionRequest): Promise<SimulationResult> {
     try {
-      const [gasEstimate, callResult] = await Promise.all([
-        this.provider.estimateGas(tx),
-        this.provider.call(tx)
-      ]);
+      // Clear gas price fields during eth_call so 0-ETH victim wallets do not fail balance checks
+      const callTx: TransactionRequest = {
+        from: tx.from,
+        to: tx.to,
+        data: tx.data,
+        value: tx.value ?? 0n,
+        gasPrice: 0n
+      };
+
+      const callResult = await this.provider.call(callTx);
+      const gasEstimate = await this.provider
+        .estimateGas({
+          from: tx.from,
+          to: tx.to,
+          data: tx.data,
+          value: tx.value ?? 0n
+        })
+        .catch(() => 75000n);
 
       return {
         success: true,
@@ -30,7 +44,7 @@ export class PreflightSimulator {
       return {
         success: false,
         gasUsed: 0n,
-        revertReason: err?.message || "Execution reverted"
+        revertReason: err?.shortMessage || err?.reason || err?.message || "Execution reverted"
       };
     }
   }
