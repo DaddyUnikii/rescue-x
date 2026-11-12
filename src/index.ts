@@ -1,9 +1,9 @@
 /**
- * RescueX - Open-source EVM Asset Rescuer (v1.0.0 Stable)
+ *RescueX - Open-source EVM Asset Rescuer (v1.1.0 Production Ready)
  * Bypasses sweeper bots to recover stuck tokens/NFTs from compromised accounts.
  */
 
-export const VERSION = "1.0.0";
+export const VERSION = "1.1.0";
 
 export * from "./types/index.js";
 export * from "./core/provider.js";

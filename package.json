@@ -1,6 +1,6 @@
 {
   "name": "@daddyunikii/rescue-x",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Open-source EVM asset rescuer to bypass sweeper bots and recover stuck tokens/NFTs from compromised wallets.",
   "type": "module",
   "main": "dist/index.js",
