@@ -1,6 +1,6 @@
 {
   "name": "@daddyunikii/rescue-x",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Open-source EVM asset rescuer to bypass sweeper bots and recover stuck tokens/NFTs from compromised wallets.",
   "type": "module",
   "main": "dist/index.js",
@@ -23,7 +23,9 @@
     "erc20",
     "nft",
     "ethereum",
-    "bsc"
+    "bsc",
+    "base",
+    "arbitrum"
   ],
   "author": "Bisikan Satan <DaddyUnikii>",
   "license": "MIT",
