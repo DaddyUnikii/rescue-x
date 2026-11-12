@@ -1,5 +1,7 @@
 export type ChainId = 1 | 56 | 137 | 8453 | 42161 | 10;
 
+export type BundleMethod = "eth_sendBundle" | "eth_sendPuissant" | "eth_sendRawTransaction";
+
 export interface ChainConfig {
   id: ChainId;
   name: string;
@@ -10,6 +12,9 @@ export interface ChainConfig {
   };
   publicRpc: string[];
   privateRpc: string[];
+  bundleRelayUrl?: string;
+  bundleMethod?: BundleMethod;
+  supportsEip1559: boolean;
   blockExplorer: string;
   supportsFlashbots: boolean;
   supportsPrivateTx: boolean;
@@ -54,4 +59,5 @@ export interface RescueReceipt {
   blockNumber: number;
   timestamp: number;
   gasSpentNative: string;
+  relayResponse?: unknown;
 }
