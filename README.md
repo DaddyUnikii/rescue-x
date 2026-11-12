@@ -77,5 +77,16 @@ npm test
 
 ---
 
+## 💖 Support / Tip the Whitehat
+
+RescueX is 100% free, open-source, and takes **zero protocol fees**. If this toolkit helped you recover stuck tokens or NFTs from a compromised wallet, consider tipping the builder:
+
+- **EVM Donation Address (ETH / BNB / USDT / USDC / Base / Arbitrum / OP / Polygon):**
+  ```text
+  0x7EaB937302c35669AC5217bcC81DCEbaF3bc4F73
+  ```
+
+---
+
 ## 📄 License
 MIT License. Created by [Bisikan Satan](https://github.com/DaddyUnikii).
