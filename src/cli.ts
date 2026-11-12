@@ -28,7 +28,7 @@ program
         ` | Relay: ${c.bundleRelayUrl ? chalk.yellow(c.bundleRelayUrl) : chalk.red("None")}`
       );
     }
-    console.log("");
+    RescueWizard.printDonationFooter();
   });
 
 program
@@ -157,6 +157,7 @@ program
     console.log(chalk.green(`\n✅ Bundle ${dryRun ? "Prepared (Dry-Run)" : "Broadcasted"} Successfully!`));
     console.log(` - Transactions : ${receipt.transactions.join(", ")}`);
     console.log(` - Sponsor Gas  : ${receipt.gasSpentNative} Native`);
+    RescueWizard.printDonationFooter();
   });
 
 program
@@ -195,6 +196,7 @@ program
     console.log(chalk.green(`\n✅ Permit Evacuation ${dryRun ? "Prepared (Dry-Run)" : "Completed"}!`));
     console.log(` - Rescued      : ${receipt.rescuedAssets[0]?.amount} ${receipt.rescuedAssets[0]?.symbol}`);
     console.log(` - Est. Gas     : ${receipt.gasSpentNative} Native`);
+    RescueWizard.printDonationFooter();
   });
 
 program.parse(process.argv);
