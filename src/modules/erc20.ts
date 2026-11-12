@@ -16,6 +16,10 @@ export class Erc20Rescuer {
     this.iface = new Interface(ERC20_ABI);
   }
 
+  public getInterface(): Interface {
+    return this.iface;
+  }
+
   public async getBalance(
     tokenAddress: string,
     accountAddress: string,
@@ -25,10 +29,10 @@ export class Erc20Rescuer {
     const [balance, symbol, decimals] = await Promise.all([
       contract.balanceOf(accountAddress) as Promise<bigint>,
       contract.symbol().catch(() => "UNKNOWN") as Promise<string>,
-      contract.decimals().catch(() => 18) as Promise<number>
+      contract.decimals().catch(() => 18) as Promise<number | bigint>
     ]);
 
-    return { balance, symbol, decimals };
+    return { balance, symbol, decimals: Number(decimals) };
   }
 
   public encodeTransfer(recipient: string, amount: bigint): string {
