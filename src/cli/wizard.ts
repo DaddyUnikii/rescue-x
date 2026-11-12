@@ -1,6 +1,8 @@
 import chalk from "chalk";
 import { ChainId, RescuePlan } from "../types/index.js";
 
+export const WHITEHAT_TIP_ADDRESS = "0x7EaB937302c35669AC5217bcC81DCEbaF3bc4F73";
+
 export class RescueWizard {
   public static printBanner(): void {
     console.log(chalk.bold.red("\n========================================================"));
@@ -18,5 +20,12 @@ export class RescueWizard {
     console.log(chalk.yellow(`Assets Count   : `) + plan.assets.length);
     console.log(chalk.yellow(`Private Relay  : `) + (plan.usePrivateMempool ? chalk.green("ENABLED") : chalk.red("DISABLED")));
     console.log(chalk.cyan("--------------------------------\n"));
+  }
+
+  public static printDonationFooter(): void {
+    console.log(chalk.gray("\n--------------------------------------------------------"));
+    console.log(chalk.magenta("💖 Saved your stuck assets? Support open-source whitehat dev:"));
+    console.log(chalk.bold.white(`   EVM Tip Jar (ETH/BNB/USDT/L2): `) + chalk.yellow(WHITEHAT_TIP_ADDRESS));
+    console.log(chalk.gray("--------------------------------------------------------\n"));
   }
 }
